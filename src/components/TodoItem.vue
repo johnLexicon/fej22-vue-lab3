@@ -3,7 +3,13 @@
     <div class="todo-count">{{ index }}</div>
     <div class="todo-content">
       <span class="todo-title">{{ todo.title }}</span
-      ><span class="todo-btns"><i class="fa-solid fa-trash-can"></i></span>
+      ><span class="todo-btns"
+        ><i
+          @click="$emit('onDelete', todo.id)"
+          type="button"
+          class="fa-solid fa-trash-can"
+        ></i
+      ></span>
     </div>
   </div>
 </template>
@@ -48,5 +54,11 @@ export default {
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+.todo-btns > i {
+  cursor: pointer;
+}
+.todo-btns > i:hover {
+  color: var(--pink);
 }
 </style>

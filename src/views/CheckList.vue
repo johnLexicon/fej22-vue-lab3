@@ -5,9 +5,10 @@
       :key="todo.id"
       :todo="todo"
       :index="index"
+      @onDelete="handleDelete"
     />
   </div>
-  <div v-else>Nothing Todo!</div>
+  <div class="message" v-else>Nothing To Do!!!</div>
 </template>
 
 <script>
@@ -21,8 +22,15 @@ export default {
   },
   setup() {
     const state = reactive(stateContent);
+
+    function handleDelete(todoId) {
+      console.log(todoId);
+      state.removeTodo(todoId);
+    }
+
     return {
       state,
+      handleDelete,
     };
   },
 };
@@ -33,5 +41,10 @@ export default {
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+.message {
+  text-align: center;
+  color: var(--blue);
+  font-size: 2rem;
 }
 </style>
