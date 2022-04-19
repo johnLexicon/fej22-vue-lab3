@@ -1,5 +1,9 @@
 <template>
-  <div class="container"></div>
+  <div class="container">
+    <header>
+      <h1>Checklist</h1>
+    </header>
+  </div>
 </template>
 
 <script>
