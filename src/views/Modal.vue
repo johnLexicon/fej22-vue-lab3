@@ -44,7 +44,7 @@ export default {
   position: absolute;
   inset: 0;
   height: 100vh;
-  background-color: var(--green-tint);
+  background-color: var(--navy-shadow);
   display: flex;
   align-items: flex-end;
 }
