@@ -1,7 +1,7 @@
 import { ref } from 'vue';
 
 export default {
-  modalEnabled: ref(true),
+  modalEnabled: ref(false),
   todos: ref([
     { id: 1, title: 'Todo 1' },
     { id: 2, title: 'Todo 2' },

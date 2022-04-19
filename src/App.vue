@@ -3,10 +3,12 @@
     <AppHeader title="Checklist" />
     <div class="container">
       <CheckList />
-      <teleport to=".modals" v-if="state.modalEnabled">
-        <Modal :state="state">
-          <TodoForm />
-        </Modal>
+      <teleport to=".modals">
+        <Transition name="modal">
+          <Modal :state="state" v-if="state.modalEnabled">
+            <TodoForm />
+          </Modal>
+        </Transition>
       </teleport>
     </div>
     <AppFooter :state="state" />
