@@ -29,27 +29,3 @@ body {
   background-color: var(--navy);
   color: var(--light-slate);
 }
-
-/* animation enter classes */
-.modal-enter-from {
-  opacity: 0;
-}
-.modal-enter-to {
-  opacity: 1;
-}
-.modal-enter-active {
-  transition: opacity 1s ease;
-}
-
-/* animation leave classes */
-.modal-leave-from {
-  opacity: 1;
-}
-
-.modal-leave-to {
-  opacity: 0;
-}
-
-.modal-leave-active {
-  transition: opacity 1s ease;
-}

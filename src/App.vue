@@ -49,4 +49,27 @@ main {
   justify-content: space-between;
   height: 100vh;
 }
+/* animation enter classes */
+.modal-enter-from {
+  opacity: 0;
+}
+.modal-enter-to {
+  opacity: 1;
+}
+.modal-enter-active {
+  transition: opacity 1s ease;
+}
+
+/* animation leave classes */
+.modal-leave-from {
+  opacity: 1;
+}
+
+.modal-leave-to {
+  opacity: 0;
+}
+
+.modal-leave-active {
+  transition: opacity 1s ease;
+}
 </style>
