@@ -43,4 +43,7 @@ footer {
   margin-bottom: 1rem;
   cursor: pointer;
 }
+#addBtn:hover {
+  color: var(--pink);
+}
 </style>
