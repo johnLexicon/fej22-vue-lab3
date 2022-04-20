@@ -36,13 +36,18 @@ export default {
       state.closeModal();
     }
 
+    function handleAdd() {
+      state.addTodo(todoTitle.value);
+      todoTitle.value = "";
+    }
+
     function onSubmit() {
       if (!todoTitle.value || todoTitle.value.trim().length < 1) {
         console.log("Validation error!");
         return;
       }
       if (editMode) handleEdit();
-      else state.addTodo(todoTitle.value);
+      else handleAdd();
     }
     return {
       editMode,
