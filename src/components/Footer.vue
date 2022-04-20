@@ -6,7 +6,7 @@
       @click="showAddModal"
       class="btn btn-primary"
     >
-      <i class="fa-solid fa-circle-plus fa-2x"></i>
+      <i class="fa-solid fa-circle-plus fa-3x"></i>
     </div>
   </footer>
 </template>
@@ -39,11 +39,14 @@ footer {
   right: 0;
 }
 #addBtn {
-  margin-top: 1rem;
-  margin-bottom: 1rem;
   cursor: pointer;
+  position: relative;
+  transform: translateY(-50%);
+  border-radius: 50%;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px,
+    rgba(0, 0, 0, 0.22) 0px 10px 10px;
 }
 #addBtn:hover {
-  color: var(--pink);
+  color: var(--blue);
 }
 </style>
