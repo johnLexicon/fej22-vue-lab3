@@ -23,7 +23,7 @@ const state = {
     this.todos = filteredTodos;
   },
   addTodo(todoTitle) {
-    this.todos.push({ id: Date.now(), title: todoTitle });
+    this.todos.unshift({ id: Date.now(), title: todoTitle });
   },
   editTodo(todoId, todoTitle) {
     const editedTodos = this.todos.map((todo) => {
