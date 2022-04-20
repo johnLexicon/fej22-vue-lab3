@@ -9,6 +9,8 @@
             name="todoTitle"
             type="text"
             v-model="todoTitle"
+            minlength="1"
+            maxlength="20"
           />
         </div>
         <button class="input-group-icon">

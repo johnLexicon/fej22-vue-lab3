@@ -76,6 +76,7 @@ export default {
 }
 .todo-title {
   cursor: pointer;
+  font-size: small;
 }
 .todo-title.completed {
   text-decoration: line-through;
@@ -87,5 +88,11 @@ export default {
 }
 .todo-btns > i:hover {
   color: var(--pink);
+}
+
+@media only screen and (min-width: 768px) {
+  .todo-title {
+    font-size: large;
+  }
 }
 </style>
