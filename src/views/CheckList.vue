@@ -1,19 +1,21 @@
 <template>
-  <TransitionGroup
-    tag="div"
-    name="list"
-    v-if="state.todos.length"
-    class="checklist"
-    appear
-  >
-    <TodoItem
-      v-for="(todo, index) in state.todos"
-      :key="todo.id"
-      :todo="todo"
-      :index="index + 1"
-    />
-  </TransitionGroup>
-  <div class="message" v-else>Nothing To Do!!!</div>
+  <transition name="switch">
+    <TransitionGroup
+      tag="div"
+      name="list"
+      v-if="state.todos.length"
+      class="checklist"
+      appear
+    >
+      <TodoItem
+        v-for="(todo, index) in state.todos"
+        :key="todo.id"
+        :todo="todo"
+        :index="index + 1"
+      />
+    </TransitionGroup>
+    <div class="message" v-else>Nothing To Do!!!</div>
+  </transition>
 </template>
 
 <script>
@@ -45,6 +47,30 @@ export default {
   text-align: center;
   color: var(--blue);
   font-size: 2rem;
+  position: relative;
+}
+
+/** switch between no todos text transitions */
+
+.switch-enter-from {
+  opacity: 0;
+}
+
+.switch-enter-to {
+  opacity: 1;
+}
+
+.switch-leave-from {
+  opacity: 1;
+}
+
+.switch-leave-to {
+  opacity: 0;
+}
+
+.switch-enter-active,
+.switch-leave-active {
+  transition: opacity 0.7s ease;
 }
 
 /* list transitions */
@@ -70,19 +96,19 @@ export default {
 }
 
 .list-enter-active {
-  transition: all 0.4s ease;
+  transition: all 0.7s ease;
 }
 
 .list-leave-active {
-  transition: all 0.4s ease;
+  transition: all 0.7s ease;
   /* For the transition to be able to work */
-  position: absolute;
+  position: relative;
   left: 0;
   right: 0;
 }
 
 .list-move {
-  transition: all 0.3s ease-out;
+  transition: all 1s ease;
 }
 
 @media only screen and (min-width: 768px) {
