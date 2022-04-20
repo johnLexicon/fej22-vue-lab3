@@ -32,7 +32,8 @@ export default {
     );
 
     function handleEdit() {
-      console.log("Edit todo");
+      state.editTodo(state.modalInfo.currentTodo.id, todoTitle.value);
+      state.closeModal();
     }
 
     function onSubmit() {

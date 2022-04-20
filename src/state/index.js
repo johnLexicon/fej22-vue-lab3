@@ -25,6 +25,13 @@ const state = {
   addTodo(todoTitle) {
     this.todos.push({ id: Date.now(), title: todoTitle });
   },
+  editTodo(todoId, todoTitle) {
+    const editedTodos = this.todos.map((todo) => {
+      if (todo.id === todoId) return { ...todo, title: todoTitle };
+      return todo;
+    });
+    this.todos = editedTodos;
+  },
   toggleComplete(todoId) {
     this.todos = this.todos.map((todo) => {
       if (todo.id === todoId) return { ...todo, completed: !todo.completed };

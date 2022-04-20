@@ -8,7 +8,7 @@
         class="todo-title"
         >{{ todo.title }}</span
       ><span class="todo-btns">
-        <i class="fa-solid fa-pen-to-square"></i>
+        <i @click="onEdit" class="fa-solid fa-pen-to-square"></i>
         <i @click="onDelete" type="button" class="fa-solid fa-trash-can"></i
       ></span>
     </div>
@@ -33,11 +33,15 @@ export default {
     function onDelete() {
       state.removeTodo(props.todo.id);
     }
+    function onEdit() {
+      state.showModal(props.todo);
+    }
     function onToggleComplete() {
       state.toggleComplete(props.todo.id);
     }
     return {
       onDelete,
+      onEdit,
       onToggleComplete,
       state,
     };
