@@ -42,7 +42,7 @@ export default {
 <style scoped>
 .container {
   padding-top: 132px;
-  padding-bottom: 32px;
+  padding-bottom: 80px;
   margin: auto;
 }
 /* animation enter classes */

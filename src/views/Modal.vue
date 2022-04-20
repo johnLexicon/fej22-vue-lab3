@@ -43,7 +43,10 @@ export default {
 }
 .modal-content {
   background-color: var(--white);
-  width: 100%;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
 }
 .modal-header {
   padding: 0.6rem;
