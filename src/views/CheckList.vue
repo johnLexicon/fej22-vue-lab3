@@ -5,15 +5,13 @@
       :key="todo.id"
       :todo="todo"
       :index="index"
-      @onDelete="handleDelete"
     />
   </div>
   <div class="message" v-else>Nothing To Do!!!</div>
 </template>
 
 <script>
-import { reactive } from "vue";
-import stateContent from "@/state";
+import state from "@/state";
 import TodoItem from "@/components/TodoItem";
 export default {
   name: "CheckList",
@@ -21,16 +19,8 @@ export default {
     TodoItem,
   },
   setup() {
-    const state = reactive(stateContent);
-
-    function handleDelete(todoId) {
-      console.log(todoId);
-      state.removeTodo(todoId);
-    }
-
     return {
       state,
-      handleDelete,
     };
   },
 };

@@ -2,19 +2,21 @@
   <div class="todo-item">
     <div class="todo-count">{{ index }}</div>
     <div class="todo-content">
-      <span class="todo-title">{{ todo.title }}</span
-      ><span class="todo-btns"
-        ><i
-          @click="$emit('onDelete', todo.id)"
-          type="button"
-          class="fa-solid fa-trash-can"
-        ></i
+      <span
+        :class="{ completed: todo.completed }"
+        @click="onToggleComplete"
+        class="todo-title"
+        >{{ todo.title }}</span
+      ><span class="todo-btns">
+        <i class="fa-solid fa-pen-to-square"></i>
+        <i @click="onDelete" type="button" class="fa-solid fa-trash-can"></i
       ></span>
     </div>
   </div>
 </template>
 
 <script>
+import state from "@/state";
 export default {
   name: "TodoItem",
   props: {
@@ -26,6 +28,19 @@ export default {
       type: Number,
       required: true,
     },
+  },
+  setup(props) {
+    function onDelete() {
+      state.removeTodo(props.todo.id);
+    }
+    function onToggleComplete() {
+      state.toggleComplete(props.todo.id);
+    }
+    return {
+      onDelete,
+      onToggleComplete,
+      state,
+    };
   },
 };
 </script>
@@ -55,8 +70,16 @@ export default {
   justify-content: space-between;
   align-items: center;
 }
+.todo-title {
+  cursor: pointer;
+}
+.todo-title.completed {
+  text-decoration: line-through;
+  color: var(--dark-slate);
+}
 .todo-btns > i {
   cursor: pointer;
+  margin: 0 0.5rem;
 }
 .todo-btns > i:hover {
   color: var(--pink);

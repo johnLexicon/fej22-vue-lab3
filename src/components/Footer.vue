@@ -12,17 +12,12 @@
 </template>
 
 <script>
+import state from "@/state";
 export default {
   name: "Footer",
-  props: {
-    state: {
-      type: Object,
-      required: true,
-    },
-  },
-  setup(props) {
+  setup() {
     function showAddModal() {
-      props.state.modalEnabled = true;
+      state.showModal();
     }
     return {
       showAddModal,

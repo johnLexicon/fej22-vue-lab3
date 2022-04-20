@@ -5,13 +5,13 @@
       <CheckList />
       <teleport to=".modals">
         <Transition name="modal">
-          <Modal :state="state" v-if="state.modalEnabled">
+          <Modal v-if="state.modalInfo.modalEnabled">
             <TodoForm />
           </Modal>
         </Transition>
       </teleport>
     </div>
-    <AppFooter :state="state" />
+    <AppFooter />
   </main>
 </template>
 
@@ -21,8 +21,7 @@ import Modal from "@/views/Modal";
 import TodoForm from "@/components/TodoForm";
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
-import { reactive } from "vue";
-import stateContent from "@/state";
+import state from "@/state";
 export default {
   name: "App",
   components: {
@@ -33,8 +32,6 @@ export default {
     AppHeader: Header,
   },
   setup() {
-    const state = reactive(stateContent);
-
     return {
       state,
     };

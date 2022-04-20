@@ -1,9 +1,9 @@
 <template>
-  <div class="backdrop" @click.self="closeModal">
+  <div class="backdrop" @click.self="onClose">
     <div class="modal-content">
       <div class="modal-header">
         <div class="modal-title">{{ modalTitle }}</div>
-        <div type="button" @click="closeModal" class="close-modal">
+        <div type="button" @click="onClose" class="close-modal">
           <i class="fa-solid fa-rectangle-xmark fa-lg"></i>
         </div>
       </div>
@@ -15,25 +15,18 @@
 </template>
 
 <script>
+import state from "@/state";
 export default {
   name: "AddModal",
-  props: {
-    state: {
-      type: Object,
-      required: true,
-    },
-    modalTitle: {
-      type: String,
-      default: "Modal title",
-    },
-  },
-  setup(props) {
-    function closeModal() {
-      props.state.modalEnabled = false;
-      console.log(props.state.modalEnabled);
+  setup() {
+    const modalTitle = state.modalInfo.currentTodo ? "Edit Todo" : "Add Todo";
+
+    function onClose() {
+      state.closeModal();
     }
     return {
-      closeModal,
+      modalTitle,
+      onClose,
     };
   },
 };

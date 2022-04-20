@@ -1,5 +1,5 @@
 <template>
-  <form>
+  <form @submit.prevent="onSubmit">
     <div class="form-group">
       <div class="input-group">
         <div class="input-group-area">
@@ -8,19 +8,48 @@
             id="todoTitle"
             name="todoTitle"
             type="text"
+            v-model="todoTitle"
           />
         </div>
-        <div type="button" class="input-group-icon">
-          <i class="fa-solid fa-plus"></i>
-        </div>
+        <button class="input-group-icon">
+          <i v-if="!editMode" class="fa-solid fa-plus"></i>
+          <i v-else class="fa-solid fa-pen-to-square"></i>
+        </button>
       </div>
     </div>
   </form>
 </template>
 
 <script>
+import state from "@/state";
+import { ref } from "vue";
 export default {
   name: "TodoForm",
+  setup() {
+    const editMode = state.modalInfo.currentTodo ? true : false;
+    const todoTitle = ref(
+      state.modalInfo.currentTodo ? state.modalInfo.currentTodo.title : ""
+    );
+
+    function handleEdit() {
+      console.log("Edit todo");
+    }
+
+    function onSubmit() {
+      if (!todoTitle.value || todoTitle.value.trim().length < 1) {
+        console.log("Validation error!");
+        return;
+      }
+      if (editMode) handleEdit();
+      else state.addTodo(todoTitle.value);
+    }
+    return {
+      editMode,
+      state,
+      onSubmit,
+      todoTitle,
+    };
+  },
 };
 </script>
 
@@ -55,9 +84,10 @@ form {
 }
 .input-group-icon {
   cursor: pointer;
-  padding: 0 12px;
+  padding: 12px 12px;
   background-color: var(--navy);
   color: var(--white);
+  border: none;
   border-top-right-radius: 5px;
   border-bottom-right-radius: 5px;
 }
