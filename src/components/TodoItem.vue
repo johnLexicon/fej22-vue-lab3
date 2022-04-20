@@ -61,12 +61,12 @@ export default {
 }
 .todo-count {
   padding: 1rem;
-  background-color: var(--lightest-navy);
   border-radius: 5px;
   margin-right: 1rem;
+  background-color: var(--dark-navy);
 }
 .todo-content {
-  background-color: var(--lightest-navy);
+  background-color: var(--dark-navy);
   border-radius: 5px;
   padding: 1rem;
   flex: 1;
@@ -87,7 +87,7 @@ export default {
   margin: 0 0.5rem;
 }
 .todo-btns > i:hover {
-  color: var(--pink);
+  color: var(--blue);
 }
 
 @media only screen and (min-width: 768px) {
