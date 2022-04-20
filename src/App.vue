@@ -40,11 +40,10 @@ export default {
 </script>
 
 <style scoped>
-main {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  height: 100vh;
+.container {
+  padding-top: 132px;
+  padding-bottom: 32px;
+  margin: auto;
 }
 /* animation enter classes */
 .modal-enter-from {

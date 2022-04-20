@@ -33,6 +33,10 @@ footer {
   justify-content: center;
   box-shadow: var(--dark-navy) 0px 2px 4px 0px,
     var(--dark-navy) 0px 2px 16px 0px;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
 }
 #addBtn {
   margin-top: 1rem;

@@ -20,6 +20,10 @@ export default {
 header {
   background-color: var(--lightest-navy);
   box-shadow: var(--dark-navy) 0px 25px 20px -20px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
 }
 h1 {
   text-align: center;

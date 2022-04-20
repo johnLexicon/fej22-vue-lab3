@@ -54,7 +54,7 @@ export default {
   display: flex;
   justify-content: space-around;
   margin-bottom: 1rem;
-  min-width: 350px;
+  min-width: 300px;
 }
 .todo-item > * {
   box-shadow: var(--dark-navy) 0px 1px 3px, var(--dark-navy) 0px 1px 2px;
