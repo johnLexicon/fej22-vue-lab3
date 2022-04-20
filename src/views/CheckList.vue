@@ -54,23 +54,27 @@ export default {
 
 .switch-enter-from {
   opacity: 0;
+  transform: translateY(-30px);
 }
 
 .switch-enter-to {
   opacity: 1;
+  transform: translateY(0);
 }
 
 .switch-leave-from {
   opacity: 1;
+  transform: translateY(0);
 }
 
 .switch-leave-to {
   opacity: 0;
+  transform: translateY(-30px);
 }
 
 .switch-enter-active,
 .switch-leave-active {
-  transition: opacity 0.7s ease;
+  transition: all 0.7s ease;
 }
 
 /* list transitions */
@@ -102,9 +106,9 @@ export default {
 .list-leave-active {
   transition: all 0.7s ease;
   /* For the transition to be able to work */
-  position: relative;
-  left: 0;
-  right: 0;
+  position: absolute;
+  left: 0.7rem;
+  right: 0.7rem;
 }
 
 .list-move {
@@ -114,6 +118,10 @@ export default {
 @media only screen and (min-width: 768px) {
   .checklist {
     padding: 0 2rem;
+  }
+  .list-leave-active {
+    left: 2rem;
+    right: 2rem;
   }
 }
 </style>
