@@ -5,9 +5,11 @@
       <CheckList />
       <teleport to=".modals">
         <Transition name="modal">
-          <Modal v-if="state.modalInfo.modalEnabled">
-            <TodoForm />
-          </Modal>
+          <Backdrop v-if="state.modalInfo.modalEnabled">
+            <Modal>
+              <TodoForm />
+            </Modal>
+          </Backdrop>
         </Transition>
       </teleport>
     </div>
@@ -17,6 +19,7 @@
 
 <script>
 import CheckList from "@/views/CheckList";
+import Backdrop from "@/views/Backdrop";
 import Modal from "@/views/Modal";
 import TodoForm from "@/components/TodoForm";
 import Footer from "@/components/Footer";
@@ -25,6 +28,7 @@ import state from "@/state";
 export default {
   name: "App",
   components: {
+    Backdrop,
     CheckList,
     Modal,
     TodoForm,
