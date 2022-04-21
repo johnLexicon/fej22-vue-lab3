@@ -1,15 +1,10 @@
 <template>
   <footer>
     <div id="removeAll">
-      <i type="button" class="fa-solid fa-trash-can fa-2x"></i>
+      <i @click="onDelete" class="fa-solid fa-trash-can fa-2x"></i>
     </div>
-    <div
-      id="addBtn"
-      type="button"
-      @click="showAddModal"
-      class="btn btn-primary"
-    >
-      <i class="fa-solid fa-circle-plus fa-3x"></i>
+    <div id="addBtn" class="btn btn-primary">
+      <i @click="showAddModal" class="fa-solid fa-circle-plus fa-3x"></i>
     </div>
     <div id="filter" class="btn btn-primary">
       <i class="fa-solid fa-filter fa-2x"></i>
@@ -25,8 +20,12 @@ export default {
     function showAddModal() {
       state.showModal();
     }
+    function onDelete() {
+      state.removeAll();
+    }
     return {
       showAddModal,
+      onDelete,
     };
   },
 };
@@ -48,15 +47,21 @@ footer {
 footer > div {
   flex: 1;
   text-align: center;
+}
+
+footer i {
   cursor: pointer;
 }
+footer i:hover {
+  color: var(--blue);
+}
+
 #addBtn {
   transform: translateY(-50%);
-  border-radius: 50%;
+}
+#addBtn i {
   box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px,
     rgba(0, 0, 0, 0.22) 0px 10px 10px;
-}
-#addBtn:hover {
-  color: var(--blue);
+  border-radius: 50%;
 }
 </style>

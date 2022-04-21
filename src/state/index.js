@@ -41,6 +41,9 @@ const state = {
       if (todo.id === todoId) return { ...todo, completed: !todo.completed };
       return todo;
     });
+  },
+  removeAll() {
+    this.todos = [];
   }
 };
 
