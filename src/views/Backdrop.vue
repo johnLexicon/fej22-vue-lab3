@@ -5,7 +5,18 @@
 </template>
 
 <script>
-export default {};
+import state from "@/state";
+export default {
+  name: "Backdrop",
+  setup() {
+    function onClose() {
+      state.closeModal();
+    }
+    return {
+      onClose,
+    };
+  },
+};
 </script>
 
 <style>
