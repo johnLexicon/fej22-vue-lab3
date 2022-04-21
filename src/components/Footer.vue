@@ -1,5 +1,8 @@
 <template>
   <footer>
+    <div id="removeAll">
+      <i type="button" class="fa-solid fa-trash-can fa-2x"></i>
+    </div>
     <div
       id="addBtn"
       type="button"
@@ -7,6 +10,9 @@
       class="btn btn-primary"
     >
       <i class="fa-solid fa-circle-plus fa-3x"></i>
+    </div>
+    <div id="filter" class="btn btn-primary">
+      <i class="fa-solid fa-filter fa-2x"></i>
     </div>
   </footer>
 </template>
@@ -31,6 +37,7 @@ footer {
   background-color: var(--lightest-navy);
   display: flex;
   justify-content: center;
+  align-items: center;
   box-shadow: var(--dark-navy) 0px 2px 4px 0px,
     var(--dark-navy) 0px 2px 16px 0px;
   position: fixed;
@@ -38,9 +45,12 @@ footer {
   left: 0;
   right: 0;
 }
-#addBtn {
+footer > div {
+  flex: 1;
+  text-align: center;
   cursor: pointer;
-  position: relative;
+}
+#addBtn {
   transform: translateY(-50%);
   border-radius: 50%;
   box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px,
