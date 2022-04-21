@@ -52,6 +52,10 @@ export default {
     function onSubmit() {
       if (!todoTitle.value || todoTitle.value.trim().length < 1) {
         console.log("Validation error!");
+        state.setErrorMessage("Title can not be empty");
+        setTimeout(() => {
+          state.setErrorMessage(null);
+        }, 1000 * 3);
         return;
       }
       if (editMode) handleEdit();

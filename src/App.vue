@@ -12,12 +12,22 @@
           </Backdrop>
         </Transition>
       </teleport>
+      <teleport to=".toastr">
+        <Transition name="toast">
+          <Toastr
+            v-if="state.errorMessage"
+            tite="Error title"
+            message="This is the error message"
+          />
+        </Transition>
+      </teleport>
     </div>
     <AppFooter />
   </main>
 </template>
 
 <script>
+import Toastr from "@/components/Toastr";
 import CheckList from "@/views/CheckList";
 import Backdrop from "@/views/Backdrop";
 import Modal from "@/views/Modal";
@@ -28,6 +38,7 @@ import state from "@/state";
 export default {
   name: "App",
   components: {
+    Toastr,
     Backdrop,
     CheckList,
     Modal,
@@ -53,11 +64,25 @@ export default {
 .modal-enter-from {
   opacity: 0;
 }
+
+.toast-enter-from {
+  opacity: 0;
+}
+
 .modal-enter-to {
   opacity: 1;
 }
+
+.toast-enter-to {
+  opacity: 1;
+}
+
 .modal-enter-active {
   transition: opacity 1s ease;
+}
+
+.toast-enter-active {
+  transition: all 1s ease;
 }
 
 /* animation leave classes */
@@ -65,11 +90,23 @@ export default {
   opacity: 1;
 }
 
+.toast-leave-from {
+  opacity: 1;
+}
+
 .modal-leave-to {
+  opacity: 0;
+}
+
+.toast-leave-to {
   opacity: 0;
 }
 
 .modal-leave-active {
   transition: opacity 1s ease;
+}
+
+.toast-leave-active {
+  transition: all 1s ease;
 }
 </style>

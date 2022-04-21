@@ -10,9 +10,13 @@ const state = {
     { id: 2, title: 'Todo 2', completed: false },
     { id: 3, title: 'Todo 3', completed: false }
   ]),
+  errorMessage: ref(null),
   showModal(currentTodo) {
     this.modalInfo.modalEnabled = true;
     this.modalInfo.currentTodo = currentTodo;
+  },
+  setErrorMessage(message) {
+    this.errorMessage = message;
   },
   closeModal() {
     this.modalInfo.modalEnabled = false;
