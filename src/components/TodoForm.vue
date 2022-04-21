@@ -11,6 +11,7 @@
             v-model="todoTitle"
             minlength="1"
             maxlength="20"
+            ref="inputRef"
           />
         </div>
         <button class="input-group-icon">
@@ -24,14 +25,19 @@
 
 <script>
 import state from "@/state";
-import { ref } from "vue";
+import { ref, onMounted } from "vue";
 export default {
   name: "TodoForm",
   setup() {
+    const inputRef = ref(null);
     const editMode = state.modalInfo.currentTodo ? true : false;
     const todoTitle = ref(
       state.modalInfo.currentTodo ? state.modalInfo.currentTodo.title : ""
     );
+
+    onMounted(() => {
+      inputRef.value.focus();
+    });
 
     function handleEdit() {
       state.editTodo(state.modalInfo.currentTodo.id, todoTitle.value);
@@ -56,6 +62,7 @@ export default {
       state,
       onSubmit,
       todoTitle,
+      inputRef,
     };
   },
 };
