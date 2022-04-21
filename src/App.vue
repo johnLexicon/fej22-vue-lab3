@@ -16,8 +16,8 @@
         <Transition name="toast">
           <Toastr
             v-if="state.errorMessage"
-            tite="Error title"
-            message="This is the error message"
+            title="Error"
+            :message="state.errorMessage"
           />
         </Transition>
       </teleport>
