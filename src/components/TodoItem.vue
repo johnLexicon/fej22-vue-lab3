@@ -77,6 +77,7 @@ export default {
 .todo-title {
   cursor: pointer;
   font-size: small;
+  flex: 1;
 }
 .todo-title.completed {
   text-decoration: line-through;
