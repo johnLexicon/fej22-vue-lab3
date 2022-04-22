@@ -1,7 +1,6 @@
 <template>
   <transition name="switch">
     <TransitionGroup
-      tag="div"
       name="list"
       v-if="state.todos.length"
       class="checklist"
@@ -14,7 +13,7 @@
         :index="index + 1"
       />
     </TransitionGroup>
-    <div class="message" v-else>Nothing To Do!!!</div>
+    <div class="message" v-else>No todos left</div>
   </transition>
 </template>
 
