@@ -8,7 +8,7 @@
       appear
     >
       <TodoItem
-        v-for="(todo, index) in state.todos"
+        v-for="(todo, index) in filteredTodos"
         :key="todo.id"
         :todo="todo"
         :index="index + 1"
@@ -19,6 +19,7 @@
 </template>
 
 <script>
+import { computed } from "vue";
 import state from "@/state";
 import TodoItem from "@/components/TodoItem";
 export default {
@@ -27,8 +28,15 @@ export default {
     TodoItem,
   },
   setup() {
+    const filteredTodos = computed(() => {
+      if (state.filterOption === "all") return state.todos;
+      else if (state.filterOption === "done")
+        return state.todos.filter((todo) => todo.completed);
+      else return state.todos.filter((todo) => !todo.completed);
+    });
     return {
       state,
+      filteredTodos,
     };
   },
 };

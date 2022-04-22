@@ -11,12 +11,17 @@ const state = {
     { id: 3, title: 'Todo 3', completed: false }
   ]),
   errorMessage: ref(null),
+  filterOption: ref('all'),
+
   showModal(currentTodo) {
     this.modalInfo.modalEnabled = true;
     this.modalInfo.currentTodo = currentTodo;
   },
   setErrorMessage(message) {
     this.errorMessage = message;
+  },
+  setFilterOption(option) {
+    this.filterOption = option;
   },
   closeModal() {
     this.modalInfo.modalEnabled = false;
