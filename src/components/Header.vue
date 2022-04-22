@@ -24,6 +24,7 @@ header {
   top: 0;
   left: 0;
   right: 0;
+  z-index: 1;
 }
 h1 {
   text-align: center;
