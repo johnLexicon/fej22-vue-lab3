@@ -8,11 +8,13 @@
     </div>
     <div id="filter" class="btn btn-primary">
       <span class="filter-wrapper">
-        <FilterMenu
-          v-if="showFilterMenu"
-          :chosen="state.filterOption"
-          @on-filtering="handleFiltering"
-        />
+        <transition name="menu">
+          <FilterMenu
+            v-if="showFilterMenu"
+            :chosen="state.filterOption"
+            @on-filtering="handleFiltering"
+          />
+        </transition>
         <i
           id="filterIcon"
           @click="showFilterMenu = !showFilterMenu"
@@ -103,5 +105,21 @@ footer i:hover {
   border-radius: 10px;
   bottom: 215%;
   left: -165%;
+}
+
+/* Transitions */
+.menu-enter-from,
+.menu-leave-to {
+  opacity: 0;
+}
+.menu-enter-to,
+.menu-leave-from {
+  opacity: 1;
+}
+.menu-enter-active {
+  transition: opacity 1s ease;
+}
+.menu-leave-active {
+  transition: opacity 1s ease;
 }
 </style>
